@@ -1,17 +1,17 @@
-public class ListIntNode {
+public class ListNode {
 
         public int data;
-        public ListIntNode next;
+        public ListNode next;
 
-        public ListIntNode(){
+        public ListNode(){
             this(0,null);
         }
 
-        public ListIntNode(int data){
+        public ListNode(int data){
             this(data,null);
         }
 
-        public ListIntNode(int data,ListIntNode next) {
+        public ListNode(int data,ListNode next) {
             this.data = data;
             this.next = next;
         }
