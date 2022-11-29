@@ -10,6 +10,16 @@ public class LinkedIntList {
         }
 
     }
+    public int length(){
+
+        ListNode current =  front;
+        int count=0;
+        while(current != null){
+            current = current.next;
+            count++;
+        } return count;
+
+    }
 
     public void add(int data){
 
@@ -28,4 +38,38 @@ public class LinkedIntList {
 
         }
     }
+
+    public void add(int index,int data){
+
+        ListNode current  = front;
+
+        if (index==0){
+            front  = new ListNode(data,front);
+
+        }
+        else{
+
+            for(int i=0;i<index-1;i++){
+                current = current.next;
+            }
+            current.next = new ListNode(data,current.next);
+        }
+                  
+
+    }
+
+
+
+    public int get(int index){
+
+        ListNode current  =  front;
+
+        for(int i=0;i<index;i++){
+            current  = current.next;
+
+        }
+        return current.data;
+    }
+
+    
 }
