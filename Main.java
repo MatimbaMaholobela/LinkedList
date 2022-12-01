@@ -3,11 +3,14 @@ public class Main {
 
         LinkedIntList newList = new LinkedIntList();
 
-        newList.add(50);
-        newList.add(1,4);
+        newList.add(2);
+        newList.add(5);
+        newList.add(12);
+        newList.addSorted(10);
 
         //newList.print();
         System.out.println(newList.length());
+        newList.print();
 
     }
 }

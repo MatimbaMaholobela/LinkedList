@@ -41,14 +41,13 @@ public class LinkedIntList {
 
     public void add(int index,int data){
 
-        ListNode current  = front;
 
         if (index==0){
             front  = new ListNode(data,front);
 
         }
         else{
-
+            ListNode current  = front;
             for(int i=0;i<index-1;i++){
                 current = current.next;
             }
@@ -57,8 +56,6 @@ public class LinkedIntList {
                   
 
     }
-
-
 
     public int get(int index){
 
@@ -69,6 +66,29 @@ public class LinkedIntList {
 
         }
         return current.data;
+    }
+
+
+    public void addSorted(int data){
+        
+        ListNode prev = null;
+        ListNode current  = front;
+
+        if(front == null || front.data>data){
+            front  = new ListNode(data,front);
+        }
+        else{
+
+            while(current.next != null && current.next.data<data){
+
+                prev = current;
+                current = current.next;
+            }
+
+            prev.next= new ListNode(data,prev.next);
+
+        }
+        
     }
 
     
