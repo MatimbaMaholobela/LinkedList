@@ -1,19 +1,25 @@
-public class ListNode {
+public class ListNode<T> implements Comparable<T>{
 
-        public int data;
-        public ListNode next;
+        public T data;
+        public ListNode<T> next;
 
         public ListNode(){
-            this(0,null);
+            this(null,null);
         }
 
-        public ListNode(int data){
+        public ListNode(T data){
             this(data,null);
         }
 
-        public ListNode(int data,ListNode next) {
+        public ListNode(T data,ListNode<T> next) {
             this.data = data;
             this.next = next;
+        }
+
+        public int compareTo(T data2){
+
+            return 0;
+            
         }
 
     

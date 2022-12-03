@@ -1,9 +1,10 @@
-public class LinkedIntList {
-    private ListNode front;
+public class LinkedList<T> {
+
+    private ListNode<T> front;
 
     public void print(){
 
-        ListNode current =  front;
+        ListNode<T> current =  front;
         while(current != null){
             System.out.println(current.data);
             current = current.next;
@@ -12,7 +13,7 @@ public class LinkedIntList {
     }
     public int length(){
 
-        ListNode current =  front;
+        ListNode<T> current =  front;
         int count=0;
         while(current != null){
             current = current.next;
@@ -21,45 +22,44 @@ public class LinkedIntList {
 
     }
 
-    public void add(int data){
+    public void add(T data){
 
+        ListNode<T> current  =  front;
         if(front==null){
-            front  = new ListNode(data);
+            front  = new ListNode<T>(data);
         }
         else{
-
-            ListNode current  =  front;
 
             while(current.next !=null){
                 current  = current.next;
             }
 
-            current.next =  new ListNode(data);
+            current.next =  new ListNode<T>(data);
 
         }
     }
 
-    public void add(int index,int data){
+    public void add(int index,T data){
 
 
         if (index==0){
-            front  = new ListNode(data,front);
+            front  = new ListNode<T>(data,front);
 
         }
         else{
-            ListNode current  = front;
+            ListNode<T> current  = front;
             for(int i=0;i<index-1;i++){
                 current = current.next;
             }
-            current.next = new ListNode(data,current.next);
+            current.next = new ListNode<T>(data,current.next);
         }
                   
 
     }
 
-    public int get(int index){
+    public T get(int index){
 
-        ListNode current  =  front;
+        ListNode<T> current  =  front;
 
         for(int i=0;i<index;i++){
             current  = current.next;
@@ -69,13 +69,13 @@ public class LinkedIntList {
     }
 
 
-    public void addSorted(int data){
+    public void addSorted(T data){
         
-        ListNode prev = null;
-        ListNode current  = front;
+        ListNode<T> prev = null;
+        ListNode<T> current  = front;
 
-        if(front == null || front.data>data){
-            front  = new ListNode(data,front);
+        if(front == null || front.data.compareTo(data)>0){
+            front  = new ListNode<T>(data,front);
         }
         else{
 
@@ -85,7 +85,7 @@ public class LinkedIntList {
                 current = current.next;
             }
 
-            prev.next= new ListNode(data,prev.next);
+            prev.next= new ListNode<T>(data,prev.next);
 
         }
         
