@@ -1,26 +1,21 @@
-public class ListNode<T> implements Comparable<T>{
+import java.nio.IntBuffer;
 
-        public T data;
-        public ListNode<T> next;
+public class ListNode{
+
+        public int data;
+        public ListNode next;
 
         public ListNode(){
-            this(null,null);
+            this(0,null);
         }
 
-        public ListNode(T data){
+        public ListNode(int data){
             this(data,null);
         }
 
-        public ListNode(T data,ListNode<T> next) {
+        public ListNode(int data,ListNode next) {
             this.data = data;
             this.next = next;
         }
-
-        public int compareTo(T data2){
-
-            return 0;
-            
-        }
-
-    
+   
 }

@@ -1,10 +1,10 @@
-public class LinkedList<T> {
+public class LinkedList{
 
-    private ListNode<T> front;
+    private ListNode front;
 
     public void print(){
 
-        ListNode<T> current =  front;
+        ListNode current =  front;
         while(current != null){
             System.out.println(current.data);
             current = current.next;
@@ -13,7 +13,7 @@ public class LinkedList<T> {
     }
     public int length(){
 
-        ListNode<T> current =  front;
+        ListNode current =  front;
         int count=0;
         while(current != null){
             current = current.next;
@@ -21,12 +21,12 @@ public class LinkedList<T> {
         } return count;
 
     }
+    
+    public void add(int data){
 
-    public void add(T data){
-
-        ListNode<T> current  =  front;
+        ListNode current  =  front;
         if(front==null){
-            front  = new ListNode<T>(data);
+            front  = new ListNode(data);
         }
         else{
 
@@ -34,32 +34,31 @@ public class LinkedList<T> {
                 current  = current.next;
             }
 
-            current.next =  new ListNode<T>(data);
+            current.next =  new ListNode(data);
 
         }
     }
 
-    public void add(int index,T data){
-
+    public void add(int index,int data){
 
         if (index==0){
-            front  = new ListNode<T>(data,front);
+            front  = new ListNode(data,front);
 
         }
         else{
-            ListNode<T> current  = front;
+            ListNode current  = front;
             for(int i=0;i<index-1;i++){
                 current = current.next;
             }
-            current.next = new ListNode<T>(data,current.next);
+            current.next = new ListNode(data,current.next);
         }
                   
 
     }
 
-    public T get(int index){
+    public int get(int index){
 
-        ListNode<T> current  =  front;
+        ListNode current  =  front;
 
         for(int i=0;i<index;i++){
             current  = current.next;
@@ -69,14 +68,15 @@ public class LinkedList<T> {
     }
 
 
-    public void addSorted(T data){
+    public void addSorted(int data){
         
-        ListNode<T> prev = null;
-        ListNode<T> current  = front;
+        ListNode prev = null;
+        ListNode current  = front;
 
-        if(front == null || front.data.compareTo(data)>0){
-            front  = new ListNode<T>(data,front);
+        if(front == null || front.data > data){
+            front  = new ListNode(data,front);
         }
+
         else{
 
             while(current.next != null && current.next.data<data){
@@ -85,11 +85,9 @@ public class LinkedList<T> {
                 current = current.next;
             }
 
-            prev.next= new ListNode<T>(data,prev.next);
+            prev.next= new ListNode(data,prev.next);
 
         }
         
-    }
-
-    
+    }    
 }
